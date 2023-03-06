@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.page-title {
+  font-family: 'Bangers', sans-serif;
+  font-size: 3rem;
+  text-align: center;
+}
+
+/*--Main--*/
+
+.app-container {
+  display: flex;
+  width: 20%;
+  height: 50vh;
+  margin: 0 auto;
+  border: 5px solid #76e3eb;
+  flex-wrap: wrap;
+}
+
+.square {
+  width: 6.25%;
+  border: 1px solid #7c8daf;
+  border-radius: 1px;
+  box-sizing: border-box;
+}
