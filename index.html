@@ -17,9 +17,15 @@
         </header>
         <main class="app-container">
             <div class="options-container">
-                <label for="pen-color">Pen color:</label>
-                <input id="pen-color" type="color" value="#000000">
+                <div>
+                    <label for="pen-color">Pen color:</label>
+                    <input id="pen-color" type="color" value="#000000">
+                </div>
                 <button name="reset">Reset Canvas</button>
+                <div>
+                    <span>Change canvas size </span>
+                    <input id="canvas-size" type="range" min="0" max="100" step="1" value="16">
+                </div>
             </div>
             <div class="sketch-container"></div>
         </main>
