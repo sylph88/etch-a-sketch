@@ -1,59 +1,58 @@
-const appDiv = document.createElement("div");
-const color = document.querySelector("#pen-color")
-const container = document.querySelector(".sketch-container")
+const canvasDiv = document.createElement("div");
+const color = document.getElementById("pen-color");
+const container = document.querySelector(".sketch-container");
 const resetButton = document.querySelector('button[name="reset"]');
-const canvasSlider = document.querySelector("#canvas-size");
+const canvasSlider = document.getElementById("canvas-slider");
+const sizeDiv = document.querySelector(".size");
+const sizeText = document.querySelector(".size-text");
 
 const initialSize = canvasSlider.value;
-appDiv.classList.add("square");
+canvasDiv.classList.add("square");
 
 function createCanvas(size) {
   let squareWidth = (1 / size) * 100; 
+  container.textContent = '';
 
   for (let i = 0; i < size ** 2; i++) {
-    let clone = appDiv.cloneNode(false);
+    let clone = canvasDiv.cloneNode(false);
     clone.style.width = `${squareWidth}%`;
     container.appendChild(clone);
   }
 }
 
+function resetCanvas() {
+  const squares = document.querySelectorAll(".square");
+  squares.forEach((square) => {
+    square.style.backgroundColor = "#ffffff";
+  });
+}
+
 createCanvas(initialSize);
 
-container.addEventListener("mouseover", (event) => {
-    if (event.target.classList.contains("square")) {
-      event.target.style.backgroundColor = color.value;
-    }
-});
+let isDrawing = false;
 
-resetButton.addEventListener("click", () => {
-    const squares = document.querySelectorAll(".square");
-    squares.forEach((x) => {
-        x.style.backgroundColor = "#ffffff";
-    })
-});
-
-canvasSlider.addEventListener('input', () => {
-    container.textContent = '';
-    createCanvas(canvasSlider.value);
-});
-
-/*
-let square = container.querySelectorAll(".square");
-let requestId;
-
-function render() {
-  square.forEach((square) => {
-    square.style.backgroundColor = color.value;
-  });
-  requestId = undefined;
-}
-
-function scheduleRender() {
-  if (!requestId) {
-    requestId = requestAnimationFrame(render);
+function draw(event) {
+  if (isDrawing && event.target.classList.contains("square")) {
+    event.target.style.backgroundColor = color.value;
   }
 }
+container.addEventListener("mousedown", (event) => {
+  if (event.target.classList.contains("square")) {
+    isDrawing = true;
+    draw(event);
+  }
+});
 
-color.addEventListener("input", scheduleRender);
-*/
+container.addEventListener("mousemove", draw);
 
+container.addEventListener("mouseup", () => {
+  isDrawing = false;
+})
+
+resetButton.addEventListener("click", resetCanvas);
+
+canvasSlider.addEventListener("input", () => {
+  createCanvas(canvasSlider.value);
+  sizeText.textContent = `${canvasSlider.value} x ${canvasSlider.value}`;
+  sizeDiv.appendChild(sizeText);
+});

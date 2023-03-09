@@ -1,9 +1,12 @@
-body {
+*, body {
+  padding: 0;
   margin: 0;
   font-family: 'Ubuntu', sans-serif;
+  box-sizing: border-box;
 }
 
 .page-title {
+  margin-top: 3rem;
   font-family: 'Bangers', sans-serif;
   font-size: 3rem;
   text-align: center;
@@ -12,13 +15,14 @@ body {
 /*--Main--*/
 .app-container {
   display: flex;
+  margin-top: 2rem;
   width: 100%;
   justify-content: center;
   gap: 2rem;
 }
 .sketch-container {
   display: flex;
-  width: 50%;
+  width: 40%;
   height: 50vh;
   border: 5px solid #76e3eb;
   flex-wrap: wrap;
@@ -28,7 +32,7 @@ body {
   width: 6.25%;
   border: 1px solid #7c8daf;
   border-radius: 1px;
-  box-sizing: border-box;
+  user-select: none;
 }
 
 /*--Options--*/
@@ -39,11 +43,30 @@ body {
   gap: 2rem;
 }
 
+#canvas-slider {
+  width: 100%;
+}
 
 span {
   display: block;
 }
 
 button {
-  font-family: inherit;
+  width: 100%;
+  background-color: #e2e8f0;
+  padding: 0.5rem 1rem;
+  border: 0 solid #e2e8f0;
+  border-radius: 0.3rem;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #cbd5e0;
+}
+
+.size-text {
+  display: block;
+  text-align: center;
 }
