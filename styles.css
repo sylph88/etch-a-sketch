@@ -16,14 +16,14 @@
 .app-container {
   display: flex;
   margin-top: 2rem;
-  width: 100%;
   justify-content: center;
   gap: 2rem;
 }
+
 .sketch-container {
   display: flex;
-  width: 40%;
-  height: 50vh;
+  width: 30%;
+  height: 25rem;
   border: 5px solid #76e3eb;
   flex-wrap: wrap;
 }
@@ -40,7 +40,7 @@
 .options-container {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 #canvas-slider {
@@ -51,17 +51,42 @@ span {
   display: block;
 }
 
+#pen-color {
+  border: 0;
+  width: 50px;
+  height: 50px;
+}
+
+#pen-color::-webkit-color-swatch-wrapper {
+  background-color: #ffffff;
+}
+
+#pen-color::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 6px;
+}
+
+.color-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 button {
   width: 100%;
   background-color: #e2e8f0;
   padding: 0.5rem 1rem;
   border: 0 solid #e2e8f0;
   border-radius: 0.3rem;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
 }
 
+#pen-color:hover,
 button:hover {
+  position: relative;
+  bottom: 1px;
   cursor: pointer;
   background-color: #cbd5e0;
 }

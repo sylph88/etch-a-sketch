@@ -1,8 +1,8 @@
 const canvasDiv = document.createElement("div");
+const canvasSlider = document.getElementById("canvas-slider");
 const color = document.getElementById("pen-color");
 const container = document.querySelector(".sketch-container");
 const resetButton = document.querySelector('button[name="reset"]');
-const canvasSlider = document.getElementById("canvas-slider");
 const sizeDiv = document.querySelector(".size");
 const sizeText = document.querySelector(".size-text");
 
